@@ -1,0 +1,102 @@
+body{
+    background: lightgrey;
+  
+  }
+  
+  #container{
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    position: absolute;
+    margin: auto;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    height:840px;
+    width:1450px;
+  
+  }
+  
+  #user-score, #comp-score, #comp, #comp2{
+    color: white;
+    position: absolute;
+    top:12px;
+    font-size:40px;
+    font-family: Arial, Helvetica, sans-serif;
+  
+  }
+  
+  #user-score{
+    left:24%;
+    top: 60px;
+  }
+  
+  #comp-score{
+    left:74%;
+    top: 60px;
+  }
+
+  #comp{
+    left:20%;
+    
+  }
+
+  #comp2{
+    left: 70%;
+   
+  }
+
+
+  
+  
+  
+  #paddle1, #paddle2{
+    position: absolute;
+    background: white;
+    height:125px;
+    width:20px;
+    top:350px;
+    
+  
+  }
+  #paddle1{
+      left: 50px;
+  } 
+
+   #paddle2{
+      left: 1375px;
+   }
+   
+
+  
+  #ball{
+    background-color: black;
+    height:30px;
+    width:30px;
+    border-radius: 50%;
+    position:absolute;
+    top:400px;
+    left:715px;
+  }
+
+  #net{
+      border-left: 10px dashed white;
+      height: 840px;
+      left: 50%;
+      position: fixed;
+
+  }
+
+  
+
+  #goal{
+
+    border-top: 10px solid blueviolet;
+    border-bottom: 10px solid blueviolet ;
+    border-right: 10px solid blueviolet;
+    border-left: 10px solid blueviolet;
+    height: 840px;
+    
+  
+    
+  }
+
