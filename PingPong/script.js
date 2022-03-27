@@ -160,7 +160,7 @@ window.setInterval(function show() {
         // We use Math.random so ball trajectory is not always the same
         if(Math.random() < 0.5){ // If it is negative
         leftSpeedOfBall = -leftSpeedOfBall + Math.random() ;
-        topSpeedOfBall = -topSpeedOfBall + Math.random();
+        
         }
     }
 
@@ -168,8 +168,7 @@ window.setInterval(function show() {
     if((leftSideOfBall + ballLength) >  leftSideOfPaddle2 && (topSideOfBall + ballLength) > positionOfPaddle2 && (topSideOfBall) < (positionOfPaddle2 + paddleHeight)){
         if(Math.random() < 0.5){ // If it is negative
             leftSpeedOfBall = -leftSpeedOfBall + Math.random() ;
-            topSpeedOfBall = -topSpeedOfBall + Math.random();
-            }
+        }
     }
 
     //Check for Left Side goal
