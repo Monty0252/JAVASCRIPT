@@ -61,7 +61,7 @@ function startBall() {
     topSpeedOfBall = Math.random() * 5 + 6;
 
     document.addEventListener('keydown', function(e){
-        if(e.keycode == 82 || e.which == 82){
+        if(e.keycode == 82 || e.which == 82){ // If R is pressed, game restarts
             Restart();
         }
 
