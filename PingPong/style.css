@@ -2,6 +2,10 @@ body{
     background: lightgrey;
   
   }
+
+ ::-webkit-scrollbar {
+    display:none;
+  }
   
   #container{
     background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
@@ -15,8 +19,16 @@ body{
     width:1450px;
   
   }
+
+  #net{
+    border-left: 10px dashed white;
+    height: 840px;
+    left: 50%;
+    position: absolute;
+
+}
   
-  #user-score, #comp-score, #comp, #comp2{
+  #play1-score, #play2-score, #play1, #play2, #Enter{
     color: white;
     position: absolute;
     top:12px;
@@ -24,31 +36,54 @@ body{
     font-family: Arial, Helvetica, sans-serif;
   
   }
+
+  #controls, #controls2{
+    color: white;
+    position: absolute;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+
+  #controls{
+    top:65%;
+    left:20%;
+  }
+
+  #controls2{
+    top: 65%;
+    left: 70%;
+
+  }
+
+  #Enter{
+    z-index: 9;
+    color: red;
+    top: 40%;
+    left: 40%;
+  }
   
-  #user-score{
+  #play1-score{
     left:24%;
     top: 60px;
   }
   
-  #comp-score{
+  #play2-score{
     left:74%;
     top: 60px;
   }
 
-  #comp{
+  #play1{
     left:20%;
     
   }
 
-  #comp2{
+  #play2{
     left: 70%;
    
   }
 
 
-  
-  
-  
   #paddle1, #paddle2{
     position: absolute;
     background: white;
@@ -67,7 +102,6 @@ body{
    }
    
 
-  
   #ball{
     background-color: black;
     height:30px;
@@ -78,25 +112,11 @@ body{
     left:715px;
   }
 
-  #net{
-      border-left: 10px dashed white;
-      height: 840px;
-      left: 50%;
-      position: fixed;
-
-  }
-
-  
-
-  #goal{
-
-    border-top: 10px solid blueviolet;
-    border-bottom: 10px solid blueviolet ;
+  #border{
+    
     border-right: 10px solid blueviolet;
     border-left: 10px solid blueviolet;
     height: 840px;
     
-  
-    
-  }
+ }
 

@@ -5,31 +5,35 @@
     <link rel="stylesheet" href="style.css">
 
   </head>
-     <body onload= "pressEnter()">
+     <body onload= "pressEnter()" onload = "Restart()">
 
        <div id="container">
        
-       
-       <div id="comp-score">0</div>
-       <div id="comp">Player 1</div>
-       <div id="comp2">Player 2</div>
-      
-       
-       <div id="user-score">0</div>
+       <div id="play1-score">0</div>
+       <div id="play2-score">0</div>
+       <div id="play1">Player 1</div>
+       <div id="play2">Player 2</div>
+       <div id="Enter">Press Enter to Start</div>
        <div id="paddle1"></div>
        <div id="paddle2"></div>
        <div id="ball"></div>
        <div id="net"></div>
-       <div id="goal"></div>
+       <div id="border"></div>
+       <ul id="controls" style ="list-style-type:none;" style = "text-align: center;">
+          <li style= "color: red;">Player1 Controls:</li>
+          <li >up: W</li>
+          <li> down: A</li> 
+          <li> reset: R </li>
+       </ul>
+
+       <ul id="controls2" style ="list-style-type:none;" style = "text-align: center;">
+        <li style= "color: red;">Player1 Controls:</li>
+        <li >up: UpArrow</li>
+        <li> down: DownArrow</li> 
+        <li> reset: R </li>
+     </ul>
        
-       
-
-
-
-
-
-       
-     </div>
+       </div>
      
 
      </body>

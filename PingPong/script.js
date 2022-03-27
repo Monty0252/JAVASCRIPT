@@ -1,6 +1,6 @@
 var boxheight = document.getElementById('container').offsetHeight;
 var boxwidth = document.getElementById('container').offsetWidth;
-var box_right = document.getElementById('container'.offsetLeft)
+var box_left = document.getElementById('container'.offsetLeft)
 var paddleHeight = document.getElementById('paddle1').offsetHeight;
 var paddleWidth = document.getElementById('paddle1').offsetWidth;
 var ballLength = document.getElementById('ball').offsetHeight;
@@ -16,20 +16,37 @@ var topSpeedOfBall = 10;
 var leftSpeedOfBall = 0;
 var score1 = 0;
 var score2 = 0;
+var enter = document.getElementById('Enter');
+var controls = document.getElementById('controls');
+var controls2 = document.getElementById('controls2');
 
 
 
+
+// Ball Starts Moving Once Enter is Pressed
 function pressEnter(){
     topSpeedOfBall = 0;
     document.addEventListener('keydown', function(e){
-        if(e.keycode == 32 || e.which == 32){
-            topSpeedOfBall = 10;
+        if(e.keycode == 13 || e.which == 13){
             startBall();
+            enter.remove();
+            controls.remove();
+            controls2.remove();
         }
+
     })
 }
 
+function Restart(){
+            reset();
+            score1 = 0;
+            score2= 0;
+            
+            
+}
 
+
+// Random generates different ball trajectories
 function startBall() {
     topSpeedOfBall = 10;
     if(Math.random() < 0.5){
@@ -42,7 +59,16 @@ function startBall() {
 
     leftSpeedOfBall = side * (Math.random() * 5 + 6)
     topSpeedOfBall = Math.random() * 5 + 6;
+
+    document.addEventListener('keydown', function(e){
+        if(e.keycode == 82 || e.which == 82){
+            Restart();
+        }
+
+    })
 }
+
+
 
 function reset(){
     topSpeedOfBall = 0;
@@ -50,6 +76,9 @@ function reset(){
     leftSideOfBall = 715;
     topSpeedOfBall = 0;
     leftSpeedOfBall = 0;
+    positionOfPaddle1 = 350;
+    positionOfPaddle2 = 350;
+
 }
 
 
@@ -70,7 +99,7 @@ document.addEventListener('keydown', function(e){
     
 })
 
-// while your not holding the key
+// while your not holding the key paddles stay still
 document.addEventListener('keyup', function(e){
     if(e.keycode == 87 || e.which == 87){
         speedOfPaddle1 = 0;
@@ -86,6 +115,7 @@ document.addEventListener('keyup', function(e){
     }
     
 })
+
 
 window.setInterval(function show() {
     positionOfPaddle1 += speedOfPaddle1;
@@ -125,15 +155,16 @@ window.setInterval(function show() {
     //PositionOfpaddle2 + paddleHeight = BottomOfPaddle2Height
 
     
-    // We use Math.random so ball trajectory is not always the same
+    // Ball and Paddle1 Collision
     if(leftSideOfBall < (leftSideOfPaddle1 + paddleWidth) && (topSideOfBall + ballLength) > positionOfPaddle1 && (topSideOfBall) < (positionOfPaddle1 + paddleHeight) ){
+        // We use Math.random so ball trajectory is not always the same
         if(Math.random() < 0.5){ // If it is negative
         leftSpeedOfBall = -leftSpeedOfBall + Math.random() ;
         topSpeedOfBall = -topSpeedOfBall + Math.random();
         }
     }
 
-
+    // Ball and Paddle2 Collision
     if((leftSideOfBall + ballLength) >  leftSideOfPaddle2 && (topSideOfBall + ballLength) > positionOfPaddle2 && (topSideOfBall) < (positionOfPaddle2 + paddleHeight)){
         if(Math.random() < 0.5){ // If it is negative
             leftSpeedOfBall = -leftSpeedOfBall + Math.random() ;
@@ -141,14 +172,16 @@ window.setInterval(function show() {
             }
     }
 
-    if(leftSideOfBall <= box_right){
-        score1++;
+    //Check for Left Side goal
+    if(leftSideOfBall <= box_left){
+        score2++;
         reset();
 
     }
-
-    if(leftSideOfBall + ballLength >= box_right + boxwidth){
-        score2++;
+    
+    // Check For Right Side goal
+    if(leftSideOfBall + ballLength >= box_left + boxwidth){
+        score1++;
         reset();
     }
 
@@ -156,8 +189,8 @@ window.setInterval(function show() {
     document.getElementById('paddle2').style.top = positionOfPaddle2 + 'px';
     document.getElementById('ball').style.top = topSideOfBall + 'px';
     document.getElementById('ball').style.left = leftSideOfBall + 'px';
-    document.getElementById('comp-score').innerText = score1.toString()
-    document.getElementById('user-score').innerText = score2.toString()
+    document.getElementById('play1-score').innerText = score1.toString()
+    document.getElementById('play2-score').innerText = score2.toString()
 
 
 
